@@ -24,11 +24,11 @@ setup(
     long_description=readme + '\n\n' + history,
     author='Arnaldo Russo',
     author_email='arnaldorusso@gmail.com',
-    url='https://github.com/arnaldorusso/https://github.com/arnaldorusso/apissah',
+    url='https://github.com/arnaldorusso/apissah',
     packages=[
-        'https://github.com/arnaldorusso/apissah',
+        'apissah',
     ],
-    package_dir={'https://github.com/arnaldorusso/apissah': 'https://github.com/arnaldorusso/apissah'},
+    #package_dir={'': 'apissah'},
     include_package_data=True,
     install_requires=[
     ],
