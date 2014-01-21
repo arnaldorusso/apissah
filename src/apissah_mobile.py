@@ -2,15 +2,53 @@
 # -*- encoding: utf-8 -*-
 
 #import time, os
-from kivy.app import App
-#from kivy.uix.widget import Widget
-from kivy.uix.button import Button
+from kivy.uix.modalview import ModalView
+from kivy.uix.listview import ListView
+from kivy.uix.gridlayout import GridLayout
+from kivy.lang import Builder
 
-class apissah(App):
-    def build(self):
-        return Button(text = 'Test')
+Builder.load_string("""
+<ListViewModal>:
+    size_hint: None, None
+    size: 400, 400
+    ListView:
+        size_hint: .6, .6
+        item_strings: [str(index) for index in range(25)]
+<ListViewRight>:
+    size_hint: None, None
+    size: 400, 400
+    ListView:
+        size_hint: .6, .6
+        item_strings: [str(index) for index in range(61)]
+""")
 
-apissah().run()
+
+class ListViewModal(ModalView):
+    def __init__(self, **kwargs):
+        super(ListViewModal, self).__init__(**kwargs)
+
+
+class ListViewRight(ModalView):
+    def __init__(self, **kwargs):
+        super(ListViewRight, self).__init__(**kwargs)
+
+
+class MainView(GridLayout):
+
+    def __init__(self, **kwargs):
+        kwargs['cols'] = 2
+        super(MainView, self).__init__(**kwargs)
+        
+        listview_modal = ListViewModal()
+        self.add_widget(listview_modal) 
+        listview_right = ListViewRight()
+        self.add_widget(listview_right)
+
+
+if __name__ == '__main__':
+    from kivy.base import runTouchApp
+    runTouchApp(MainView(width=800))
+    
     #~ def running(tt):
         #~ for j in range(tt, -1, -1):
             #~ os.system('clear')
