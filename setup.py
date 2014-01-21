@@ -25,10 +25,8 @@ setup(
     author='Arnaldo Russo',
     author_email='arnaldorusso@gmail.com',
     url='https://github.com/arnaldorusso/apissah',
-    packages=[
-        'apissah',
-    ],
-    #package_dir={'': 'apissah'},
+    packages=find_packages('src'),
+    package_dir={'': 'src'},
     include_package_data=True,
     install_requires=[
     ],
